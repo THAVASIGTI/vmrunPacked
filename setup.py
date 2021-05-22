@@ -13,11 +13,7 @@ setuptools.setup(
     description="VmWare-vmrun execute actions use python",
     long_description=long_description,
     long_description_content_type="text/markdown",
-<<<<<<< HEAD
     url="https://github.com/THAVASIGTI/vmrunPacked.git",
-=======
-    url="https://github.com/THAVASIGTI/tn_radio.git",
->>>>>>> 5efc00f686058209f1e94c65452cbb0b4ed73b38
     packages=setuptools.find_packages(),
     include_package_data=True,
     classifiers=[
