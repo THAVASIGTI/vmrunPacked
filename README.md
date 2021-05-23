@@ -376,3 +376,68 @@ print(val)
 val = vmobj.vprobe_list_globals()
 print(val)
 ```
+
+# GENERAL COMMANDS
+
+support commands
+- list
+- upgradevm
+- installtools
+- register
+- unregister
+- clone
+- deleteVM
+- listRegisteredVM
+- getGuestIpAddress
+
+### list
+
+``` python
+val = vmobj.list_vm()
+print(val)
+```
+
+### upgradevm
+``` python
+vmobj.upgrade_vm()
+```
+
+### installtools
+``` python
+vmobj.install_tools()
+```
+
+### register
+``` python
+vmobj.register()
+```
+
+### unregister
+``` python
+vmobj.un_register()
+```
+
+### clone
+``` python
+dest_vmx_file = "D:\\new\\clone.vmx"
+snap_name = "<name>"
+vmobj.clone(dest_vmx_file, snap_name, full=True)
+# parms "full" or "linked" -> bool 
+```
+
+### listRegisteredVM
+``` python
+val = vmobj.list_registered_vm()
+print(val)
+```
+
+### deleteVM
+``` python
+vmobj.delete_vm()
+```
+
+### getGuestIpAddress
+``` python
+val = vmobj.get_guest_ip_address()
+print(val)
+```
