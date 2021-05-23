@@ -9,6 +9,7 @@ setuptools.setup(
     name="vmrunPacked",
     version="0.0.4",
     author="THAVASIGTI",
+    license="MIT",
     author_email="ganeshanthavasigti1032000@gmail.com",
     description="Using vmrun to Control Virtual Machines. VmWare-vmrun execute actions use python",
     long_description=long_description,
@@ -17,6 +18,8 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     include_package_data=True,
     classifiers=[
+        "Intended Audience :: Developers",
+        "Intended Audience :: System Administrators",
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
