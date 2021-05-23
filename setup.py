@@ -7,7 +7,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setuptools.setup(
     name="vmrunPacked",
-    version="0.0.3",
+    version="0.0.4",
     author="THAVASIGTI",
     author_email="ganeshanthavasigti1032000@gmail.com",
     description="VmWare-vmrun execute actions use python",
