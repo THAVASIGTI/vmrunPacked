@@ -1,7 +1,7 @@
 # vmrunPacked
 
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/python/black)
-[![PyPI](https://img.shields.io/pypi/v/vmrunpacked.svg)](https://pypi.org/project/vmrunPacked)
+[![PyPI](https://img.shields.io/pypi/v/vmrunPacked)](https://pypi.org/project/vmrunPacked)
 [![downloads](https://img.shields.io/pypi/dm/vmrunpacked.svg)](https://pypistats.org/packages/vmrunpacked)
 
 ## Installation
