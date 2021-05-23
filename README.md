@@ -19,3 +19,22 @@ import vmrunPacked
 vmobj = vmrunPacked.Pack("/vmx_file_path/vm.vmx",userName="admin",passWord="admin@123")
 # "product" this prams defualt "ws" options ["fusion", "player"]
 ```
+
+### Power Commands
+
+In this Power command support
+- start
+- stop
+- reset
+- suspend
+- pause
+- unpause
+
+``` python
+import vmrunPacked
+
+vmobj = vmrunPacked.Pack("/vmx_file_path/vm.vmx",userName="admin",passWord="admin@123")
+vmobj.start()
+
+```
+Starts a virtual machine (.vmx file) or team (.vmtm file). The default gui option starts the machine interactively, including startup dialog box, to allow noninteractive scripting.
