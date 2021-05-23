@@ -339,3 +339,105 @@ vmobj.copy_file_from_guest_to_host(guest_file_path, host_file_path)
 host_path = "/home/<user>/Pic/hub.png"
 vmobj.capture_screen(host_path)
 ```
+
+# VProbes Commands
+
+support commands
+- vprobeVersion
+- vprobeLoad
+- vprobeReset
+- vprobeListProbes
+- vprobeListGlobals
+
+### vprobeVersion
+``` python
+vmobj.vprobe_version()
+```
+
+### vprobeLoad
+``` python
+script_path = "<path>"
+vmobj.vprobe_load(script_path)
+```
+
+### vprobeReset
+``` python
+vmobj.vprobe_reset()
+```
+
+### vprobeListProbes
+``` python
+val = vmobj.vprobe_list_probes()
+print(val)
+```
+
+### vprobeListGlobals
+``` python
+val = vmobj.vprobe_list_globals()
+print(val)
+```
+
+# GENERAL COMMANDS
+
+support commands
+- list
+- upgradevm
+- installtools
+- register
+- unregister
+- clone
+- deleteVM
+- listRegisteredVM
+- getGuestIpAddress
+
+### list
+
+``` python
+val = vmobj.list_vm()
+print(val)
+```
+
+### upgradevm
+``` python
+vmobj.upgrade_vm()
+```
+
+### installtools
+``` python
+vmobj.install_tools()
+```
+
+### register
+``` python
+vmobj.register()
+```
+
+### unregister
+``` python
+vmobj.un_register()
+```
+
+### clone
+``` python
+dest_vmx_file = "D:\\new\\clone.vmx"
+snap_name = "<name>"
+vmobj.clone(dest_vmx_file, snap_name, full=True)
+# parms "full" or "linked" -> bool 
+```
+
+### listRegisteredVM
+``` python
+val = vmobj.list_registered_vm()
+print(val)
+```
+
+### deleteVM
+``` python
+vmobj.delete_vm()
+```
+
+### getGuestIpAddress
+``` python
+val = vmobj.get_guest_ip_address()
+print(val)
+```
