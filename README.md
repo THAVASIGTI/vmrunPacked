@@ -30,7 +30,7 @@ In this Power command support
 - pause
 - unpause
 
-## start
+# start
 ``` python
 import vmrunPacked
 
@@ -40,32 +40,37 @@ vmobj.start()
 ```
 Starts a virtual machine (.vmx file) or team (.vmtm file). The default gui option starts the machine interactively, including startup dialog box, to allow noninteractive scripting.
 
-## stop
+# stop
 
 stop command Parameters two `soft` and `hard`
 
 ``` python
 vmobj.stop() #that call normal
-
-vmobj.stop(soft=True) #that call soft method off vm
-
-vmobj.stop(hard=True) #that call hard force close vm
-
+vmobj.stop(soft=True) #that call soft "quick close" vm
+vmobj.stop(hard=True) #that call hard "force close" vm
 # Exception 
 # vmobj.stop(soft=True,hard=True)
 # tha case defualt "soft" parms call
 ```
 
-## reset (reboot)
+# reset (reboot)
 
 ``` python
 vmobj.reset() #that call normal
-
-vmobj.reset(soft=True) #that call soft method off vm
-
-vmobj.reset(hard=True) #that call hard force close vm
-
+vmobj.reset(soft=True) #that call soft "quick close" vm
+vmobj.reset(hard=True) #that call hard "force close" vm
 # Exception 
 # vmobj.reset(soft=True,hard=True)
+# tha case defualt "soft" parms call
+```
+
+# suspend
+
+``` python
+vmobj.suspend() #that call normal
+vmobj.suspend(soft=True) #that call soft "quick close" vm
+vmobj.suspend(hard=True) #that call hard "force close" vm
+# Exception 
+# vmobj.suspend(soft=True,hard=True)
 # tha case defualt "soft" parms call
 ```
