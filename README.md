@@ -339,3 +339,40 @@ vmobj.copy_file_from_guest_to_host(guest_file_path, host_file_path)
 host_path = "/home/<user>/Pic/hub.png"
 vmobj.capture_screen(host_path)
 ```
+
+# VProbes Commands
+
+support commands
+- vprobeVersion
+- vprobeLoad
+- vprobeReset
+- vprobeListProbes
+- vprobeListGlobals
+
+### vprobeVersion
+``` python
+vmobj.vprobe_version()
+```
+
+### vprobeLoad
+``` python
+script_path = "<path>"
+vmobj.vprobe_load(script_path)
+```
+
+### vprobeReset
+``` python
+vmobj.vprobe_reset()
+```
+
+### vprobeListProbes
+``` python
+val = vmobj.vprobe_list_probes()
+print(val)
+```
+
+### vprobeListGlobals
+``` python
+val = vmobj.vprobe_list_globals()
+print(val)
+```
