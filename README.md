@@ -20,7 +20,7 @@ vmobj = vmrunPacked.Pack("/vmx_file_path/vm.vmx",userName="admin",passWord="admi
 # "product" this prams defualt "ws" options ["fusion", "player"]
 ```
 
-### Power Commands
+# Power Commands
 
 In this Power command support
 - start
@@ -30,7 +30,7 @@ In this Power command support
 - pause
 - unpause
 
-# start
+#### start
 ``` python
 import vmrunPacked
 
@@ -40,7 +40,7 @@ vmobj.start()
 ```
 Starts a virtual machine (.vmx file) or team (.vmtm file). The default gui option starts the machine interactively, including startup dialog box, to allow noninteractive scripting.
 
-# stop
+### stop
 
 stop command Parameters two `soft` and `hard`
 
@@ -53,7 +53,7 @@ vmobj.stop(hard=True) #that call hard "force close" vm
 # tha case defualt "soft" parms call
 ```
 
-# reset (reboot)
+### reset (reboot)
 
 ``` python
 vmobj.reset() #that call normal
@@ -64,7 +64,7 @@ vmobj.reset(hard=True) #that call hard "force close" vm
 # tha case defualt "soft" parms call
 ```
 
-# suspend
+### suspend
 
 ``` python
 vmobj.suspend() #that call normal
@@ -74,3 +74,66 @@ vmobj.suspend(hard=True) #that call hard "force close" vm
 # vmobj.suspend(soft=True,hard=True)
 # tha case defualt "soft" parms call
 ```
+
+### pause
+
+``` python
+vmobj.pause()
+```
+Pauses a virtual machine (.vmx file). You can use this either to pause replay, or to pause normal operation.
+
+### unpause
+
+``` python
+vmobj.unpause()
+```
+Resumes operation of a virtual machine (.vmx file) from where you paused replay or normal operation.
+
+# Snapshot Commands
+
+support actions:
+- listSnapshots
+- snapshot
+- deleteSnapshot
+- revertToSnapshot
+
+### listSnapshots
+
+view list of snap shots
+``` python
+val = vmobj.list_snap_shots()
+print(val)
+#return value type "list" 
+```
+
+### snapshot
+
+take snap shots vmware
+``` python
+snap_shot_name = "demo"
+val = vmobj.snapshot(snap_shot_name)
+print(val)
+# retun valus type "list". success when empty list
+```
+Creates a snapshot of a virtual machine (.vmx file). For products such as Workstation that support multiple snapshots, you must provide the snapshot name.
+
+### deleteSnapshot
+
+remove snap shots vmware
+``` python
+snap_shot_name = "demo"
+val = vmobj.delete_snapshot(snap_shot_name)
+print(val)
+# retun valus type "list". success when empty list
+```
+Removes a snapshot from a virtual machine (.vmx file). For products such as Workstation that support multiple snapshots, you must provide the snapshot name.
+
+### revertToSnapshot
+
+``` python
+snap_shot_name = "demo"
+val = vmobj.revert_to_snap_shot(snap_shot_name)
+print(val)
+# retun valus type "list". success when empty list
+```
+Sets the virtual machine to its state at snapshot time. If a snapshot has a unique name within a virtual machine, revert to that snapshot by specifying the path to the virtual machine’s configuration file and the unique snapshot name.
