@@ -91,7 +91,7 @@ Resumes operation of a virtual machine (.vmx file) from where you paused replay 
 
 # Snapshot Commands
 
-support actions:
+support actions
 - listSnapshots
 - snapshot
 - deleteSnapshot
@@ -137,3 +137,205 @@ print(val)
 # retun valus type "list". success when empty list
 ```
 Sets the virtual machine to its state at snapshot time. If a snapshot has a unique name within a virtual machine, revert to that snapshot by specifying the path to the virtual machine’s configuration file and the unique snapshot name.
+
+# Record and Replay Commands
+
+support actions
+- beginRecording
+- endRecording
+- beginReplay
+- endReplay
+
+### beginRecording
+``` python
+snap_name = "rec_demo"
+val = vmobj.begin_recording(snap_name)
+print(val)
+# retun valus type "list". success when empty list
+```
+Begins recording a running virtual machine (.vmx file), storing activity in the specified snapshot object, with optional description.
+
+### endRecording
+``` python
+val = vmobj.end_recording()
+print(val)
+# retun valus type "list". success when empty list
+```
+Ends the recording of a virtual machine (.vmx file) that is in progress, and close its snapshot object.
+
+### beginReplay
+``` python
+snap_name = "rec_demo"
+val = vmobj.begin_replay(snap_name)
+print(val)
+# retun valus type "list". success when empty list
+```
+Begins replaying the recorded activity of a powered off virtual machine (.vmx file) from a snapshot object, powering off if necessary.
+
+### endReplay
+``` python
+val = vmobj.end_replay()
+print(val)
+# retun valus type "list". success when empty list
+```
+Ends the replaying of a virtual machine (.vmx file) that is currently underway.
+
+# Guest Operating System Commands
+
+support commands
+- writeVariable
+- readVariable
+- runProgramInGuest
+- runScriptInGuest
+- setSharedFolderState
+- addSharedFolder
+- removeSharedFolder
+- listProcessesInGuest
+- killProcessInGuest
+- fileExistsInGuest
+- deleteFileInGuest
+- renameFileInGuest
+- createDirectoryInGuest
+- deleteDirectoryInGuest
+- listDirectoryInGuest
+- copyFileFromHostToGuest
+- copyFileFromGuestToHost
+- captureScreen
+
+### writeVariable
+``` python
+var_name = "todo"
+var_value = "todo_value"
+vmobj.write_variable(var_name,var_value,runtimeConfig=True)
+# "runtimeConfig" parms or "guestEnv"
+```
+
+### readVariable
+``` python
+val_name = "todo"
+vmobj.read_variable(var_name,runtimeConfig=True)
+# "runtimeConfig" parms or "guestEnv"
+```
+
+### runProgramInGuest
+``` python
+file_path = "D:\\new\\todo.bat"
+vmobj.run_program_in_guest(file_path,activeWindow=True,interactive=True)
+# "noWait" , "activeWindow" , "interactive" - bool value parms
+```
+
+### runScriptInGuest
+``` python
+interpreter_path = "C:\\Program Files\\Ruby\\ruby.exe"
+file_path = "D:\\new\\init.rb"
+vmobj.run_script_in_guest(interpreter_path, file_path)
+``` 
+Runs a command script in the guest operating system. VMware Tools and a valid guest login are required.
+
+### setSharedFolderState
+``` python
+share_name = "vm"
+new_path = "D:\\path"
+vmobj.set_shared_folder_state(share_name, new_path,writable=True)
+# "readonly" or "writable" -> bool any one prams
+```
+Modifies the writability state of a folder shared between the host and a guest virtual machine (.vmx file).
+
+### addSharedFolder
+``` python
+share_name = "vm"
+host_path = "D:\\new_path"
+vmobj.add_shared_folder(share_name, host_path)
+```
+Adds a folder to be shared between the host and guest. The share name is a mount point in the guest file system. The path to folder is the exported directory on the host.
+
+### removeSharedFolder
+``` python
+share_name = "D:\\new_path"
+vmobj.remove_shared_folder(share_name)
+```
+Removes a guest virtual machine’s access to a shared folder on the host. The share name is a mount point in the guest file system.
+
+### listProcessesInGuest
+``` python
+val = vmobj.list_processes_in_guest()
+print(val)
+# return value "list"
+```
+Lists all processes running in the guest operating system. VMware Tools and a valid guest login are required.
+
+### killProcessInGuest
+``` python
+pid = "<pid>"
+val = vmobj.kill_process_in_guest(pid)
+print(val)
+# return value "list"
+```
+
+### fileExistsInGuest
+``` python
+file_path = "D:\\new\\t.mp3"
+val = vmobj.file_exists_in_guest(file_path)
+print(val)
+# return value "list"
+```
+Checks whether the specified file exists in the guest operating system. VMware Tools and a valid guest login are required.
+
+### deleteFileInGuest
+``` python
+file_path = "D:\\new\\t.mp3"
+val = vmobj.delete_file_in_guest(file_path)
+print(val)
+# return value "list"
+```
+
+### renameFileInGuest
+``` python
+old_file_name = "D:\\new\\todo.png"
+new_file_name = "D:\\new\\work.png"
+vmobj.rename_file_in_guest(old_file_name,new_file_name)
+```
+Renames or moves a file in the guest operating system. VMware Tools and a valid guest login are required.
+
+### createDirectoryInGuest
+``` python
+var = "C:\\new\\own
+vmobj.create_directory_in_guest(var)
+```
+Creates the specified directory in the guest operating system. VMware Tools and a valid guest login are required.
+
+### deleteDirectoryInGuest
+``` python
+var = "C:\\new\\own
+vmobj.delete_directory_in_guest(var)
+```
+Deletes a directory from the guest operating system. VMware Tools and a valid guest login are required.
+
+### listDirectoryInGuest
+``` python
+var = "D:\\new"
+val = vmobj.list_directory_in_guest(var)
+print(val)
+# return value "list"
+```
+Lists directory contents in the guest operating system. VMware Tools and a valid guest login are required.
+
+### copyFileFromHostToGuest
+``` python
+host_file_path = "/home/<user>/h.txt"
+guest_file_path = "D:\\h.txt"
+vmobj.copy_file_from_host_to_guest(host_file_path, guest_file_path)
+```
+
+### copyFileFromGuestToHost
+``` python
+guest_file_path = "D:\\h.txt"
+host_file_path = "/home/<user>/h.txt"
+vmobj.copy_file_from_guest_to_host(guest_file_path, host_file_path)
+```
+
+### captureScreen
+``` python
+host_path = "/home/<user>/Pic/hub.png"
+vmobj.capture_screen(host_path)
+```

@@ -220,7 +220,7 @@ class Pack:
         try:
             msg = [SET_SHARED_FOLDER_STATE,share_name,new_path]
             if readonly and writable:
-                msg.append(READ_ONLY)
+                msg.append(WRITABLE)
             elif readonly:
                 msg.append(READ_ONLY)
             elif writable:
