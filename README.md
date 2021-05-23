@@ -7,6 +7,8 @@
 ```
 pip install vmrunPacked
 ```
+### About
+python vmrun commands and actions execute `power` actions. `snapshot` actions. `recoard` actions. `guest os control` actions. `vprobe` actions. `general commands` actions
 
 ### Import Pkg
 
@@ -14,5 +16,5 @@ pip install vmrunPacked
 import vmrunPacked
 
 vmobj = vmrunPacked.Pack("/vmx_file_path/vm.vmx",userName="admin",passWord="admin@123")
-# "product" this prams defual "ws"
+# "product" this prams defualt "ws" options ["fusion", "player"]
 ```
